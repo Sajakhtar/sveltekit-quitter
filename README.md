@@ -16,6 +16,21 @@ npm init svelte@next my-app
 
 > Note: the `@next` is temporary
 
+
+### Tailwind CSS & daisyUI
+
+Svelte-add guide for [TailwindCSS](https://github.com/svelte-add/tailwindcss)
+
+[daisyUI](https://daisyui.com/) for Tailwind CSS components.
+
+```bash
+npx svelte-add@latest tailwindcss
+
+npm i daisyui
+```
+
+### Supabase
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
