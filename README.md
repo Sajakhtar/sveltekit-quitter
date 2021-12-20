@@ -40,6 +40,19 @@ plugins: [
 
 ### Supabase
 
+Setup Supabase as per this [blogpost](https://sjorswijsman.medium.com/setting-up-supabase-with-sveltekit-f6234fa1b54b)
+
+
+```bash
+npm install @supabase/supabase-js
+```
+
+Import this Supabase client from anywhere in our Svelte project by using:
+
+```js
+import supabase from '$lib/supabase'
+```
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
