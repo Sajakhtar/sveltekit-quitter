@@ -29,6 +29,15 @@ npx svelte-add@latest tailwindcss
 npm i daisyui
 ```
 
+Add `require('daisyui')` to plugins array in `tailwind.config.cjs`
+
+```js
+plugins: [
+    require('daisyui')
+  ]
+```
+
+
 ### Supabase
 
 ## Developing
