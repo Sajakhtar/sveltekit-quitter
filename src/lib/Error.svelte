@@ -4,6 +4,6 @@
 </script>
 
 
-{#if condition}
+{#if error}
   <strong class="text-red-600">{error.message}</strong>
 {/if}
