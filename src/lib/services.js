@@ -5,11 +5,11 @@ export function getUser() {
 }
 
 export async function signIn({ email }) {
-  const error = await supabase.auth.signIn({ email })
+  const {error} = await supabase.auth.signIn({ email }) // pass in email only for magiclink
   return {data: !error, error}
 }
 
 export async function signOut() {
-  const error = await supabase.auth.signOut()
+  const {error} = await supabase.auth.signOut()
   return {data: !error, error}
 }
