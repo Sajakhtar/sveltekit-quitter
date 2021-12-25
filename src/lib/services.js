@@ -13,3 +13,10 @@ export async function signOut() {
   const {error} = await supabase.auth.signOut()
   return {data: !error, error}
 }
+
+export async function createPost() { // user is user's email
+  const {data, error} = await supabase
+    .from('posts')
+    .insert({content, user})
+    return {data, error}
+}
