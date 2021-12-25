@@ -30,7 +30,7 @@
         <span class="label-text text-4xl">Login to Quitter</span>
       </label>
       <div class="relative">
-        <input bing:bind:value={email} id="email" type="email" placeholder="Email" required class="w-full pr-16 input input-primary input-bordered">
+        <input bind:value={email} id="email" type="email" placeholder="Email" required class="w-full pr-16 input input-primary input-bordered">
         <button class="absolute top-0 right-0 rounded-l-none btn btn-primary">Get Magic Link</button>
       </div>
     </form>
