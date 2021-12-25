@@ -53,6 +53,46 @@ Import this Supabase client from anywhere in our Svelte project by using:
 import supabase from '$lib/supabase'
 ```
 
+#### Tables
+
+##### Posts
+In Supabase UI
+- create a new table named `posts`
+- create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially
+- create a colum named `content` with type `text`
+- Save table
+- In LHS navigation, go to Authentication, then Policies,
+  - To create a read-only policy open to everyone (inc. non-logged-in users), select
+    - `New Policy`
+    - `Create policy from template`
+    - `Enable read access to everyone`
+    - `use this template`
+    - `Review`
+    - `Save policy`
+  - To creat a policy for authenticated user to only create posts, select
+    - `New Policy`
+    - `Create policy from template`
+    - `Enable insert access for authenticated users only`
+    - `use this template`
+    - `Review`
+    - `Save policy`
+  - To create a policy for no one to update posts, select
+    - `New Policy`
+    - `Create a policy from scratch`
+    - Policy name: `No updates`
+    - Allowed operation: `update`
+    - USING expression: `false`
+    - WITH CHECK expresion: `false`
+  - To creat a policy for authenticated user to delete their own posts, select
+    - `New Policy`
+    - `Create policy from template`
+    - `Enable delete access for users based on their user ID *`
+    - `use this template`
+    - Replace policy name with: `Enable delete for users based on user email`
+    - Replace using USING expression with `auth.email = user`
+    - `Review`
+    - `Save policy`
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
