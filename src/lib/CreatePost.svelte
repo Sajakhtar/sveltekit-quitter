@@ -1,7 +1,14 @@
+<script>
+  import { createPost } from '$lib/services'
+
+  let postContent = ''
+</script>
+
+
 <form class="form-control" on:submit|preventDefault={handleCreatePost}>
-  <label class="label">
-    <span class="label-text">Your bio</span>
+  <label for="post" class="label">
+    <span class="label-text text-xl">What would you like to post?</span>
   </label>
-  <textarea class="textarea h-24 textarea-bordered" placeholder="Bio"></textarea>
+  <textarea bind:value={postContent} id="post" class="textarea h-24 textarea-bordered"></textarea>
   <button class="btn">neutral</button>
 </form>
