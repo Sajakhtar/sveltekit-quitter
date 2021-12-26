@@ -1,2 +1,10 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script>
+  import CreatePost from '$lib/CreatePost.svelte'
+</script>
+
+<header class="flex justify-between">
+  <h1 class="text-2xl">Quitter (a copy of Twitter)</h1>
+  <button class="btn btn-sm">Logout</button>
+</header>
+
+<CreatePost />

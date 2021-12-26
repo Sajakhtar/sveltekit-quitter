@@ -10,5 +10,5 @@
     <span class="label-text text-xl">What would you like to post?</span>
   </label>
   <textarea bind:value={postContent} id="post" class="textarea h-24 textarea-bordered"></textarea>
-  <button class="btn">neutral</button>
+  <button class="btn">Post it</button>
 </form>
