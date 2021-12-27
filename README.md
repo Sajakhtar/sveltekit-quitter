@@ -59,7 +59,7 @@ import supabase from '$lib/supabase'
 In Supabase UI
 - create a new table named `posts`
 - create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially
-- create a colum named `content` with type `text`
+- create a colum named `content` with type `text`, not nullable
 - Save table
 - In LHS navigation, go to Authentication, then Policies,
   - To create a read-only policy open to everyone (inc. non-logged-in users), select
@@ -92,6 +92,13 @@ In Supabase UI
     - Replace using USING expression with `auth.email = user`
     - `Review`
     - `Save policy`
+- create a new table named `likes`
+  - create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially, and not nullable
+  - create a colum named `post`,  with *reference* to `posts` table (the post ID specifically), and non nullable
+- create a new table named `comments`
+  - create a colum named `content` with type `text`, not nullable
+  - create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially, and not nullable
+  - create a colum named `post`,  with *reference* to `posts` table (the post ID specifically), and non nullable
 
 ## Developing
 
