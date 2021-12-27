@@ -1,5 +1,6 @@
 <script>
   import CreatePost from '$lib/CreatePost.svelte'
+  import Post from '$lib/Post.svelte'
 </script>
 
 <header class="flex justify-between">
@@ -8,3 +9,7 @@
 </header>
 
 <CreatePost />
+
+{#each posts as post}
+  <Post {...post} />
+{/each}
