@@ -5,6 +5,7 @@
   let postContent = ''
 
   let createPostPromise = Promise.resolve({})
+
   function handleCreatePost() {
     createPostPromise = createPost({user: getUser().email, content: postContent})
   }

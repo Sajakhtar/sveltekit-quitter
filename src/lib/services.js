@@ -16,7 +16,21 @@ export async function signOut() {
 
 export async function createPost({content, user}) { // user is user's email
   const {data, error} = await supabase
-    .from('posts')
-    .insert({content, user})
+      .from('posts')
+      .insert({content, user})
+    return {data, error}
+}
+
+export async function createLike({post, user}) { // user is user's email
+  const {data, error} = await supabase
+      .from('likes')
+      .insert({post, user})
+    return {data, error}
+}
+
+export async function createComment({post, user, content}) { // user is user's email
+  const {data, error} = await supabase
+      .from('comments')
+      .insert({post, user, content})
     return {data, error}
 }
