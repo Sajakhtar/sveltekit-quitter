@@ -17,7 +17,7 @@
   <label for="post" class="label">
     <span class="label-text text-xl">What would you like to post?</span>
   </label>
-  <textarea bind:value={postContent} id="post" required class="textarea h-24 textarea-bordered"></textarea>
+  <textarea bind:value={postContent} id="post" required class="textarea h-24 textarea-bordered mb-2"></textarea>
 
   {#await createPostPromise}
     <button disabled type="button" class="btn">Post it</button>
