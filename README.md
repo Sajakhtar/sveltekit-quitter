@@ -69,7 +69,7 @@ In Supabase UI
     - `use this template`
     - `Review`
     - `Save policy`
-  - To creat a policy for authenticated user to only create posts, select
+  - To create a policy for authenticated user to only create posts, select
     - `New Policy`
     - `Create policy from template`
     - `Enable insert access for authenticated users only`
@@ -95,10 +95,27 @@ In Supabase UI
 - create a new table named `likes`
   - create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially, and not nullable
   - create a colum named `post`,  with *reference* to `posts` table (the post ID specifically), and non nullable
+  - In LHS navigation, go to Authentication, then Policies,
+    - Create a read-only policy open to everyone (inc. non-logged-in users)
+    - Create a policy for authenticated user to only create likes
 - create a new table named `comments`
   - create a colum named `content` with type `text`, not nullable
   - create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially, and not nullable
   - create a colum named `post`,  with *reference* to `posts` table (the post ID specifically), and non nullable
+  - In LHS navigation, go to Authentication, then Policies,
+    - Create a read-only policy open to everyone (inc. non-logged-in users)
+    - Create a policy for authenticated user to only create a comment
+  - To create a policy for a user to update comments, select
+    - `New Policy`
+    - `Create policy from template`
+    - `Enable update access for users based on their email *`
+    - USING expression: `auth.email() = user`
+    - WITH CHECK expresion: `auth.email() = user`
+  - To create a policy for a user to delete comments, select
+    - `New Policy`
+    - `Create policy from template`
+    - `Enable delete access for users based on their user ID *`
+    - USING expression: `auth.email() = user`
 
 ## Developing
 
