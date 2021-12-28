@@ -3,12 +3,10 @@
 
 </script>
 
-
-
-<article class="card shadow-sm bg-accent text-accent-content">
+<article class="card text-center shadow-2xl">
 
   {#if publicURL}
-    <figure>
+    <figure class="px-10 pt-10">
       <img src={publicURL}>
     </figure>
   {/if}
@@ -17,8 +15,8 @@
     <h2 class="card-title">{user} says...</h2>
     <p>{content}</p>
 
-    <div class="card-actions">
-      <button class="btn btn-secondary">More info</button>
+    <div class="justify-center card-actions">
+      <button class="btn btn-outline btn-accent">More info</button>
     </div>
   </div>
 

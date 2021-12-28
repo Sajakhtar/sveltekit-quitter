@@ -1,6 +1,25 @@
+<script context="module"> // runs before page load
+  import {getPosts} from '$lib/services'
+
+  export async function load({page, fetch, session, context}) {
+    const {data, error} = await getPosts()
+
+    return {
+      props: {
+        posts: data,
+        error
+      }
+    }
+  }
+</script>
+
+
 <script>
   import CreatePost from '$lib/CreatePost.svelte'
   import Post from '$lib/Post.svelte'
+  import Error from '$lib/Error.svelte'
+
+  export let posts, error
 </script>
 
 <header class="flex justify-between">
@@ -10,6 +29,10 @@
 
 <CreatePost />
 
-{#each posts as post}
+<Error {error} />
+
+{#each posts || [] as post}
   <Post {...post} />
+{:else}
+  No posts found
 {/each}
