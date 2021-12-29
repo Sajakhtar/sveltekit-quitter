@@ -60,7 +60,14 @@
     </div>
 
     {#each comments as comment}
-      {comment.user} says... <q>{comment.content}</q>
+      <!-- {comment.user} says... <q>{comment.content}</q> -->
+
+      <div class="card shadow-2xl lg:card-side bg-secondary text-secondary-content my-1">
+        <div class="card-body">
+          <p>{comment.user} says... <q>{comment.content}</q></p>
+        </div>
+      </div>
+
     {/each}
   </div>
 
