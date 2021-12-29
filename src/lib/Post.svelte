@@ -28,7 +28,7 @@
 
   {#if publicURL}
     <figure class="px-10 pt-10">
-      <img src={publicURL}>
+      <img src={publicURL} class="rounded-xl">
     </figure>
   {/if}
 
