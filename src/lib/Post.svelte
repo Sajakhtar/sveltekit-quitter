@@ -63,7 +63,7 @@
       <!-- {comment.user} says... <q>{comment.content}</q> -->
 
       <div class="card shadow-2xl lg:card-side bg-secondary text-secondary-content my-1">
-        <div class="card-body">
+        <div class="card-body text-left">
           <p>{comment.user} says... <q>{comment.content}</q></p>
         </div>
       </div>
