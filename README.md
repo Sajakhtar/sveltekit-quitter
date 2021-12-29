@@ -55,7 +55,6 @@ import supabase from '$lib/supabase'
 
 #### Tables
 
-##### Posts
 In Supabase UI
 - create a new table named `posts`
 - create a column named `user` (type `varchar`) and link it to the `users` built-in table for auth, with *reference* to `email` specficially
@@ -116,6 +115,18 @@ In Supabase UI
     - `Create policy from template`
     - `Enable delete access for users based on their user ID *`
     - USING expression: `auth.email() = user`
+
+#### Storage
+
+Navigate to `Storage` in Supabase and create a new bucket named `images`, toggles the bucket to be public.
+
+Select `Policies` within the `Storage` menu, and create a new policy under `Other policies under storage.objects`, select:
+- create policy for read for everyone
+  - `Create policy from template`
+  - `Enable read access to everyone`
+- create policy authenticated users to upload images
+  - `Create policy from template`
+  - `Enable insert access for authenticated users only`
 
 ## Developing
 
