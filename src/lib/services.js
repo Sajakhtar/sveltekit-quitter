@@ -14,11 +14,30 @@ export async function signOut() {
   return {data: !error, error}
 }
 
-export async function createPost({content, user}) { // user is user's email
-  const {data, error} = await supabase
-      .from('posts')
-      .insert({content, user})
-    return {data, error}
+export async function createPost({content, user, imageFile}) { // user is user's email
+  if (imageFile) {
+
+    const {data: imageData, error: imageError} = await supabase
+      .storage
+      .from('images')
+      .upload(getUser().email + '/' + Date.now(), imageFile, {
+        cacheControl: '3600',
+        upsert: false
+      })
+
+      if (imageError) return {data: null, error: imageError}
+
+      const {data, error} = await supabase
+        .from('posts')
+        .insert({content, user, image: imageData.Key})
+      return {data, error}
+
+  } else {
+    const {data, error} = await supabase
+        .from('posts')
+        .insert({content, user})
+      return {data, error}
+  }
 }
 
 export async function createLike({post, user}) { // post is posts's ID

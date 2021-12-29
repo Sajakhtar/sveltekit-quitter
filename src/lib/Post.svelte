@@ -33,10 +33,10 @@
   {/if}
 
   <div class="card-body">
-    <h2 class="card-title">{user} says...</h2>
-    <p>{content}</p>
+    <h2 class="card-title text-left">{user} says...</h2>
+    <p class="text-left">{content}</p>
 
-    <div class="card-actions flex justify-between">
+    <div class="card-actions flex justify-between my-4">
 
       {#await createCommentPromise}
         Posting comment...
