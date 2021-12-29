@@ -67,7 +67,7 @@ export async function getPosts() {
 
   // comments and likes for the posts
   data = await Promise.all(data.map(async (post) => {
-    const [{count: likes, }, {data: comments, }, /*{publicURL}*/] = await Promise.all([
+    const [{count: likes, }, {data: comments, }, {publicURL}] = await Promise.all([
       await supabase
         .from('likes')
         .select('id', { count: 'estimated', head: true }) // fetching est count, not rows
@@ -78,11 +78,11 @@ export async function getPosts() {
         .select('*')
         .eq('post', post.id),
 
-      // post.image ? await supabase.storage.from('images').getPublicUrl(post.image.split('/').slice(1).join('/')) : Promise.all()
+      post.image ? await supabase.storage.from('images').getPublicUrl(post.image.split('/').slice(1).join('/')) : Promise.resolve({})
     ])
     // ERROR handling can be added in a try catch here
     return {
-      ...post, likes, comments
+      ...post, likes, comments, publicURL
     }
   }))
 
