@@ -3,6 +3,7 @@
   import { createComment, createLike, getUser } from '$lib/services'
 
   // id is post ID, user is Post's user, not logged-in user
+  // these export vars matche the items within `{...post}` from index which comes from getPost() service i.e. all the posts, comments likes from supabase
   export let id, user, content, likes = 0, comments = [], publicURL = null
 
   let commentContent = ''
