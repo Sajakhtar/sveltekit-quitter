@@ -1,8 +1,20 @@
 <script>
+  import Error from '$lib/Error.svelte'
   import { createComment, createLike, getUser } from '$lib/services'
 
   // id is post ID, user is Post's user, not logged-in user
   export let id, user, content, likes = 0, comments = [], publicURL = null
+
+  let commentContent = ''
+  let createCommentPromise = Promise.resolve({})
+
+  function addComment() {
+    createCommentPromise = createComment({user: getUser().email, post: id, content: commentContent})
+      .then(({data, error}) => {
+        comments = [data, ...comment]
+        return {data, error}
+      })
+  }
 
   function addLike() {
     likes += 1
@@ -25,18 +37,29 @@
 
     <div class="card-actions flex justify-between">
 
-      <form class="form-control">
-        <div class="flex space-x-2">
-          <input type="text" placeholder="your thoughts" class="w-full input input-primary input-bordered">
-          <button class="btn btn-primary">comment</button>
-        </div>
-      </form>
+      {#await createCommentPromise}
+        Posting comment...
+      {:then {data, error}}
+        <Error {error} />
+        {#if data}
+          Thanks for commenting
+        {/if}
+
+        <form class="form-control" on:submit|preventDefault={addComment}>
+          <div class="flex space-x-2">
+            <input bind:value={commentContent} type="text" placeholder="your thoughts" class="w-full input input-primary input-bordered">
+            <button class="btn btn-primary">comment</button>
+          </div>
+        </form>
+
+      {/await}
+
 
       <button on:click={addLike} class="btn btn-outline btn-accent">{likes} {likes === 1 ? 'Like' : 'Likes'}</button>
 
     </div>
 
-    {#each commentss as comment}
+    {#each comments as comment}
       {comment.user} says... <q>{comment.content}</q>
     {/each}
   </div>
