@@ -35,6 +35,10 @@
       <button on:click={addLike} class="btn btn-outline btn-accent">{likes} {likes === 1 ? 'Like' : 'Likes'}</button>
 
     </div>
+
+    {#each commentss as comment}
+      {comment.user} says... <q>{comment.content}</q>
+    {/each}
   </div>
 
 </article>
