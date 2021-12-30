@@ -3,6 +3,7 @@
   import { goto } from '$app/navigation'
   import { getUser, signIn } from '$lib/services'
   import Error from '$lib/Error.svelte'
+  import Cubed from '$lib/Cubed.svelte'
 
   // redirect if already signed in
   const user = getUser()
@@ -36,3 +37,5 @@
     </form>
   {/if}
 {/await}
+
+<Cubed />
