@@ -12,7 +12,8 @@
   function addComment() {
     createCommentPromise = createComment({user: getUser().email, post: id, content: commentContent})
       .then(({data, error}) => {
-        comments = [data, ...comment]
+        commentContent = ''
+        comments = [...data, ...comments]
         return {data, error}
       })
   }
