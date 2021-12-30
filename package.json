@@ -28,6 +28,8 @@
 	"type": "module",
 	"dependencies": {
 		"@supabase/supabase-js": "^1.28.5",
-		"daisyui": "^1.16.6"
+		"daisyui": "^1.16.6",
+		"svelte-cubed": "^0.2.1",
+		"three": "^0.136.0"
 	}
 }

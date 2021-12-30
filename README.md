@@ -131,6 +131,16 @@ Select `Policies` within the `Storage` menu, and create a new policy under `Othe
   - `Create policy from template`
   - `Enable insert access for authenticated users only`
 
+### Svelte Cubed
+
+[Svelte Cubed](https://svelte-cubed.vercel.app/) site and documentation
+
+Install dependancies
+```bash
+npm install three
+npm install svelte-cubed
+```
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
