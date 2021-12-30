@@ -1,19 +1,23 @@
 import supabase from './supabase'
 
+// GET USER
 export function getUser() {
   return supabase.auth.user()
 }
 
+// SIGN IN
 export async function signIn({ email }) {
   const {error} = await supabase.auth.signIn({ email }) // pass in email only for magiclink
   return {data: !error, error}
 }
 
+// SIGN OUT
 export async function signOut() {
   const {error} = await supabase.auth.signOut()
   return {data: !error, error}
 }
 
+// CREATE POST
 export async function createPost({content, user, imageFile}) { // user is user's email
   if (imageFile) {
 
@@ -40,6 +44,7 @@ export async function createPost({content, user, imageFile}) { // user is user's
   }
 }
 
+// CREATE LIKE
 export async function createLike({post, user}) { // post is posts's ID
   const {data, error} = await supabase
       .from('likes')
@@ -47,6 +52,7 @@ export async function createLike({post, user}) { // post is posts's ID
     return {data, error}
 }
 
+// CREATE COMMENT
 export async function createComment({post, user, content}) { // user is user's email
   const {data, error} = await supabase
       .from('comments')
@@ -54,6 +60,7 @@ export async function createComment({post, user, content}) { // user is user's e
     return {data, error}
 }
 
+// GET POSTS
 export async function getPosts() {
 
   // posts
